@@ -1,0 +1,76 @@
+﻿@model IEnumerable<MoneyManager.Models.Bill>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    th {
+        border: 1px solid #ddd;
+    }
+    td {
+        border: 1px solid #ddd;
+    }
+</style>
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Bill Name
+        </th>
+        <th>
+            Amount
+        </th>
+        <th>
+            Extra Information
+        </th>
+        <th>
+            Day of Month Due
+        </th>
+        <th>
+            Mandatory Bill
+        </th>
+        <th>
+            Bill Paid From Savings?
+        </th>
+        <th>
+            Bill Already Paid?
+        </th>
+        <th>...</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.BillName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BillAmount)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BillInformation)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BillDueDay)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IsMandatoryBill)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IsSavingsAccount)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BillPaid)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    </td>
+</tr>
+}
+
+</table>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MoneyManager.Models.Administration>
+
+@{
+    ViewBag.Title = "Administration";
+}
+
+<h2>Administration</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Savings Amount
+        </th>
+        <th>
+            David Pay Amount
+        </th>
+        <th>
+            Date of Pay: David
+        </th>
+        <th>
+            Sarah Pay Amount
+        </th>
+        <th>
+            Date of Pay: Sarah
+        </th>
+        <th>
+            Total Income
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SavingsAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DavidPayAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DavidPayDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SarahPayAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SarahPayDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IncomeTotal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

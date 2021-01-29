@@ -1,0 +1,66 @@
+﻿@model MoneyManager.Models.Administration
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Administration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SavingsAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SavingsAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DavidPayAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DavidPayAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DavidPayDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DavidPayDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SarahPayAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SarahPayAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SarahPayDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SarahPayDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncomeTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(modelItem => modelItem.IncomeTotal)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

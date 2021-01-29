@@ -1,0 +1,54 @@
+﻿@model MoneyManager.Models.QuickPurchase
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>QuickPurchase</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QuickPurchaseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuickPurchaseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.QuickPurchaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.QuickPurchaseAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.QuickPurchaseAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.QuickPurchaseOrigin)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.QuickPurchaseOrigin)
+        </dt>
+
+        <dd>
+            @Html.DisplayNameFor(model => model.QuickPurchaseReason)
+        </dd>
+
+        <dt>
+            @Html.DisplayFor(model => model.QuickPurchaseReason)
+        </dt>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

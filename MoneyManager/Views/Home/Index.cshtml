@@ -1,0 +1,84 @@
+﻿@model MoneyManager.Models.Admin
+
+@{
+    ViewBag.Title = "Money Manager";
+}
+<style>
+    .header-text {
+        font-weight: 600;
+        font-size: xx-large;
+    }
+</style>
+<div class="jumbotron">
+    <h1 style="text-align:center">Money Manager</h1>
+</div>
+<div style="text-align:center">
+    <h2>Welcome to Money Manager</h2>
+    <p class="savings-text">
+        Current Savings Account Balance:
+    </p>
+    <p class="header-text savings-balance">
+        £@Html.DisplayFor(item => item.SavingsAccountBalance)
+    </p>
+    <p class="bills-remaining-text">
+        Cost of remaining bills:
+    </p>
+    <p class="header-text bills-remaining-balance">
+        £@Html.DisplayFor(item => item.RemainingBillsCost)
+    </p>
+    <p class="bills-remaining-text">
+        Purchases made this month:
+    </p>
+    <p class="header-text bills-remaining-balance">
+        @Html.DisplayFor(item => item.QuickPurchasesMadeThisMonth)
+    </p>
+    <p class="bills-remaining-text">
+        Cost of purchases made this month:
+    </p>
+    <p class="header-text bills-remaining-balance">
+        £@Html.DisplayFor(item => item.QuickPurchasesMonthlyCost)
+    </p>
+    <p class="bills-remaining-text">
+        Balance left (After Bills and Purchases):
+    </p>
+    @if (Model.SavingsRemainingAfterBills > 300)
+    {
+        @:<p style="color:darkgreen;" class="header-text">
+    }
+    else if (Model.SavingsRemainingAfterBills <= 300 && Model.SavingsRemainingAfterBills > 100)
+    {
+        @:<p style="color:orange" class="header-text">
+    }
+    else
+    {
+        @:<p style="color:red" class="header-text">
+    }
+    £@Html.DisplayFor(item => item.SavingsRemainingAfterBills)
+</p>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Next 5 Bills:</h2>
+        <ol>
+            @for (int i = 0; i < 5; i++)
+            {
+            <li>
+                @Html.DisplayFor(item => item.BillInfoObjects[i].BillInfoString)
+            </li>
+            }
+        </ol>
+    </div>
+    <div  style="text-align:center" class="col-md-4">
+        <h2>Remaining Bills:</h2>
+        <h3 class="header-text">
+            @Html.DisplayFor(item => item.CountOfRemainingBills)
+        </h3>
+    </div>
+    <div class="col-md-4">
+        <h2>Quick Purchases:</h2>
+        <p>Bought Something? Add it here</p>
+        <p>
+            @Html.ActionLink("Create New", "../QuickPurchases/Create")
+        </p>
+    </div>
+</div>
